@@ -1,0 +1,118 @@
+﻿function myclick()
+{
+	document.getElementById("submit")
+	xxxxx=document.getElementById("inputbox").value;
+	process(xxxxx);
+	//alert("123");
+}
+function keyDown(event)
+{
+	if(event.keyCode==13)
+           {
+           	myclick();
+           }
+}
+function process(xxxxx)
+{
+	    fail_text="<img src=\"fail.gif\"  height=\"81\" width=\"70\" alt=\"x\" />"
+    if(xxxxx=="<error>"||xxxxx==""||xxxxx.replace(/_/g,'')=='')
+    {
+    	document.body.innerHTML=fail_text+"<p>cant found  word in page</p>"+
+    	" <input id=\"inputbox\"> <input type=button value=ok id=submit>";
+    	
+    	document.getElementById("submit").addEventListener('click',myclick, false);
+    	document.getElementById("inputbox").addEventListener('keydown',keyDown, false);
+    	document.getElementById("inputbox").focus(); 
+    	return ;
+    }
+		url="http://www.iciba.com/"+xxxxx;
+		//alert(xxxxx);
+		document.write(url);
+		//var para=document.createElement("p");
+		//var node=document.createTextNode(xxxxx);
+		//para.appendChild(node);
+		//var element=document.getElementById("div1");
+		//element.appendChild(para);
+
+		
+ 		xmlHttp=new XMLHttpRequest();
+ 		 xmlHttp.open("GET",url , false);
+  		xmlHttp.send(null);
+  		 //document.location.href="http://www.iciba.com/"+xxxxx; 
+  		//xmlDoc=xmlHttp.responseText;
+  		//var doc = (new DOMParser()).parseFromString(xmlDoc,"text/xml");
+  		//alert("yxxxx");
+  	//	var myDoc=document.implementation.createDocument("","",null);
+  		//myDoc.async=false;
+  		//myDoc.load("http://www.iciba.com/"+xxxxx);
+  		//document.write(doc.innerHTML);
+  		//document.write("123");
+  	xmlDoc=xmlHttp.responseText;
+  	
+  	  //	var cw = window.frames['tst'];  
+  	  //	cw.document.body.innerHTML=xmlDoc;
+  	//alert("123123");
+  	document.all[0].innerHTML=xmlDoc;
+  	//return;
+  	//alert("xzczxc");
+  	try
+  	{
+	  	var collins=document.getElementsByClassName("collins_content")[0].innerHTML;
+	  
+	  	if((""+xmlDoc).indexOf("柯林斯高阶英汉双解学习词典")==-1)
+	  	{
+	  		throw -1;
+	  	}
+  	//var head=document.getElementById('head').innerHTML;
+    }
+     catch(err)
+     {
+     	try
+     	{
+     		var dict_main=document.getElementById("dict_main").innerHTML;
+     		//alert(dict_main);
+     		document.body.innerHTML=fail_text+"<p>cant found  word "+xxxxx+" in collins</p>"+dict_main;
+      }
+      catch(err)
+      {
+      	document.body.innerHTML=fail_text+"<p>cant found  word "+xxxxx+" in iciba.com</p>";
+      }
+     	return ;
+    }
+  	//alert(collins);
+  	//document.head.innerHTML=head;
+  	//document.head.innerHTML="<link href=\"http://cdn.iciba.com/web/static/styles/result_new_v5.css?v=20130322\" rel=\"stylesheet\" type=\"text/css\">";
+  var dictbar;
+  try
+  {
+  	usually=document.getElementsByClassName("usually")[0];
+  	dictbar=document.getElementsByClassName("dictbar")[0];
+  	dictbar.removeChild(usually);
+  	dictbar=dictbar.outerHTML;
+  }
+  catch(err)
+  {
+  	console.log(err);
+  	dictbar="";
+  }
+  	//document.body.innerHTML="<div><p>"+xxxxx+"</p></div>"+dictbar+collins;
+  	document.body.innerHTML="<div><p>"+xxxxx+"</p></div>"+dictbar+collins;
+  	document.body.style.width=400;
+  	
+  	//document.body.insertAdjacentHTML("beforeEnd","<iframe id='frm' src=""/>");
+ 		//document.write(xmlDoc);
+ 		//document.write("<script>alert(\"123123\");</script></body></html>");
+ 
+ 		//alert("00123123");
+}
+chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.sendRequest(tab.id, {method: "getText"}, function(response) {
+        if(response.method=="getText"){
+            xxxxx = response.data;
+        }
+        process(xxxxx);
+    
+    });
+});
+
+

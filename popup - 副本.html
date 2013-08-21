@@ -1,0 +1,796 @@
+﻿<style>
+/* ::::: http://cdn.iciba.com/web/static/styles/result_new_v5.css?v=20130322 ::::: */
+
+body, div, ul, li, h1, h2, h3, h4, h5, h6, p, form, input, label, table, thead, tbody, th, tr, td, dl, dt, dd { margin: 0px; padding: 0px; }
+input, button, textarea, select { font-family: Arial; font-size: inherit; font-style: inherit; font-weight: inherit; }
+input { vertical-align: middle; }
+body { font-family: Arial; font-size: 14px; background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(102, 102, 102); }
+ul, li { list-style: none outside none; }
+a { color: rgb(102, 102, 102); text-decoration: none; }
+img { border: 0px none; }
+a:hover, #footer .hp_footer a:hover, a.text_black:hover { color: rgb(67, 114, 182); text-decoration: underline; }
+.addbox { width: 310px; height: 167px; font-size: 14px; display: none; z-index: 99999; background: none repeat scroll 0% 0% rgb(204, 204, 204); padding: 10px; position: absolute; top: 10px; left: 20px; }
+.addWordContent { background: none repeat scroll 0% 0% rgb(255, 255, 255); width: 310px; height: 167px; }
+.addbox .cH { background: url('bg_index.gif') repeat-x scroll 0px -443px transparent; height: 29px; line-height: 29px; text-align: left; padding: 0px 11px; font-size: 12px; color: rgb(67, 114, 182); }
+.addbox .cH .close { float: right; margin-top: 9px; cursor: pointer; background: url('bg_index.gif') no-repeat scroll -85px -69px transparent; width: 10px; height: 10px; }
+.addbox .cF { height: 25px; padding-top: 3px; }
+.addbox .cF a:link, .addbox .cF a:visited { width: 86px; height: 23px; display: block; float: right; line-height: 23px; text-align: center; background: url('bg_index.gif') repeat-x scroll 0px -450px transparent; cursor: pointer; border: 1px solid rgb(197, 211, 221); color: rgb(67, 114, 182); text-decoration: none; font-size: 12px; margin-right: 10px; }
+.addbox .cF a:hover { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+.bg_main { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+#login, .usually, .prons, #side_bar, .tab_list, .group_inf { font-size: 12px; }
+.fl, .nav_list li, .left_bg, .input_style, .search, .search_hover, .usually label, .usually span, .title, .tab_list li, .group_inf li, .eg, .us { float: left; }
+.register, .search_main, .right_bg, .up, .down { float: right; }
+#layout { width: 960px; margin: 0px auto; }
+.handwrite, .handwrite_over, .drop_down, .drop_down:hover, .ico_sound, .new_word a, .ico, .part_main h3.close a, .part_main h3.open a, .up, .down, .ico_close, .ct_example li, .to_top, .to_top:hover, .suggest li, a.example, a.example_up, a.info { background-image: url('bg_index.gif'); background-repeat: no-repeat; }
+#main_box a { color: rgb(35, 111, 212); }
+#main_box a:hover, .feedback a:hover { color: rgb(0, 147, 255); }
+.group_inf { clear: both; }
+.group_inf li { white-space: nowrap; margin-bottom: 7px; }
+.left_bg, .right_bg, .search, .button_expan a, .button_expan a:hover { background-image: url('bg_index.gif'); background-repeat: no-repeat; }
+#main_box { width: 755px; float: left; }
+#dict_main { padding: 0px 8px 13px; border: 1px solid rgb(217, 226, 233); }
+#center { padding-top: 11px; width: 960px; overflow: hidden; }
+.dictbar { width: 729px; display: inline-block; padding: 15px 0px 20px 8px; position: relative; }
+.usually { float: right; width: 137px; line-height: 16px; padding-top: 10px; }
+.usually a { float: right; }
+.star { background-position: left top; background-repeat: repeat-x; position: relative; }
+.star_current { background-position: left center; background-repeat: repeat-x; left: 0px; top: 0px; position: absolute; }
+.title { line-height: 32px; padding-right: 17px; position: relative; }
+.prons { white-space: nowrap; word-break: break-all; font-weight: normal; padding-top: 7px; }
+.dict_title { font-size: 28px; color: rgb(51, 51, 51); font-family: arial,sans-serif; width: 500px; }
+.dict_title h1 { font-size: 28px; word-wrap: break-word; word-break: break-all; white-space: normal; }
+.ico_sound { background-position: 0px -55px; display: inline-block; height: 13px; margin: 2px 0px -4px 4px; overflow: hidden; width: 15px; }
+.ico_sound:hover { background-position: -15px -55px; }
+.eg, .us, .group_pos strong, .group_inf li { padding-right: 10px; }
+.eg, .us { font-family: "lucida sans unicode",arial; padding-top: 2px; }
+.new_word { padding-top: 2px; float: left; }
+.new_word a { padding: 2px 10px 0px 22px; height: 17px; display: block; background-position: -159px -55px; font-family: "宋体"; }
+.tab_list { height: 29px; padding: 0px 0px 10px 8px; }
+.tab_list h2, .tab_list h3 { font-size: 12px; font-weight: normal; }
+.tab_list li { line-height: 29px; border-right: 1px solid rgb(217, 226, 233); border-left: 1px solid rgb(217, 226, 233); margin-right: -1px; z-index: 200; }
+#main_box .tab_list li a { padding: 0px 16px; background-position: 0px -102px; display: block; cursor: pointer; color: rgb(102, 102, 102); }
+#main_box .tab_list li a:hover { background-position: 0px -133px; color: rgb(67, 114, 182); }
+#main_box .tab_list li.current, #main_box .tab_list li.current a { background-position: 0px -161px; color: rgb(0, 0, 0); }
+#main_box .tab_list li.current a:hover { background: none repeat scroll 0% 0% transparent; }
+#main_box .tab_list li.text_red a { padding: 0px 18px 0px 21px; }
+.up, .down { width: 18px; height: 16px; margin: 11px 1px 0px 0px; }
+.up { background-position: -70px -55px; }
+#main_box .usually, #main_box .prons { color: rgb(153, 153, 153); }
+.group_pos { color: rgb(0, 0, 0); line-height: 22px; clear: both; overflow: hidden; }
+.group_pos p { width: 725px; clear: both; }
+.label_list { float: left; width: 635px; }
+.cn .group_pos, #main_box .group_pos strong { color: rgb(51, 51, 51); }
+.group_pos strong { float: left; }
+.group_prons { clear: both; padding-top: 18px; height: auto; overflow: hidden; }
+.dict_content { margin-bottom: 20px; }
+.margin_top { padding-top: 6px; }
+#main_box .tab_list li, #main_box .tab_list li.text_red a { color: rgb(102, 102, 102); }
+.part_list, .part_list a, .part_main h3, .part_main h3 a { color: rgb(67, 114, 182); font-weight: bold; font-size: 14px; }
+.part_main h3 { padding: 15px 0px 7px; }
+.part_main h3.close a { background-position: -230px 7px; padding-left: 15px; display: block; }
+.part_main h3.open a { background-position: -230px -55px; padding-left: 15px; display: block; }
+.part_main h3 a:hover, a.text_blue, .text_blue, .feedback a, .collins_en_cn b, .vEn_tip b { color: rgb(35, 111, 212); }
+.tab_content { display: none; }
+.collins_en_cn { line-height: 20px; }
+.caption { background-color: rgb(245, 247, 252); color: rgb(51, 51, 51); font-size: 14px; font-weight: normal; padding: 9px 9px 9px 32px; text-indent: -15px; margin-bottom: 11px; position: relative; }
+.caption .text_blue { padding-right: 8px; }
+.collins_en_cn ul { color: rgb(102, 102, 102); padding: 0px 20px 1px 47px; }
+.collins_en_cn ul.vli { padding: 10px 0px 0px 19px; }
+.vli li { line-height: 20px; color: rgb(139, 139, 139); }
+.collins_en_cn li, .vExplain_r li { background: url('bg_index.gif') no-repeat scroll -244px -548px transparent; padding-bottom: 11px; clear: both; padding-left: 10px; }
+.caption .st { font-size: 12px; font-weight: bold; color: rgb(102, 102, 102); padding-right: 9px; z-index: 700; }
+.tab_list li.text_red, .caption .st { position: relative; }
+.caption .num { text-indent: -15px; font-weight: bold; color: rgb(102, 102, 102); }
+.tips_box { position: relative; display: inline-block; background-color: rgb(244, 244, 244); padding-left: 10px; z-index: 600; }
+.tips_main { position: absolute; top: 19px; left: -12px; font-weight: normal; display: none; z-index: 500; }
+.caption .st .tips_main { position: absolute; left: -1px; }
+a.example, a.info, a.example_up { display: inline-block; overflow: hidden; padding-left: 10px; vertical-align: middle; height: 15px; }
+a.info { background-position: 0px -125px; width: 47px; }
+a.info:hover { background-position: 0px -141px; }
+.tips_content { position: absolute; font-size: 12px; color: rgb(191, 144, 31); border: 1px solid rgb(227, 223, 175); padding: 2px 9px 1px 26px; background-color: rgb(254, 255, 229); margin-top: 3px; white-space: nowrap; }
+.bg_tips { position: absolute; width: 55px; height: 4px; background: url('bg_index.gif') no-repeat scroll -159px -83px transparent; z-index: 200; left: 60px; overflow: hidden; }
+.caption .st .bg_tips { background: url('bg_index.gif') no-repeat scroll -159px -90px transparent; }
+.usually_tip { position: absolute; left: 486px; top: 45px; }
+.usually_tip .tips_content { padding: 4px 9px 3px 11px; }
+.about { font-size: 12px; color: rgb(102, 102, 102); padding: 9px 9px 9px 22px; text-indent: 0px; overflow: hidden; }
+.about dt { width: 63px; float: left; padding-top: 1px; }
+.about dd { float: left; }
+.about a, .bold_blue a { font-size: 14px; font-weight: bold; }
+.collins_en_cn li.explain_r, .vExplain_r { background-color: rgb(249, 249, 220); }
+.collins_en_cn li.explain_s, .collins_en_cn li.explain_c, .collins_en_cn li.explain_r, .vExplain_s { background: none repeat scroll 0% 0% rgb(249, 249, 220); color: rgb(51, 51, 51); line-height: 24px; padding: 3px 25px 3px 10px; border: 1px solid rgb(203, 215, 224); margin-bottom: 10px; text-indent: 0px; }
+.vExplain_s i, .collins_en_cn li.explain_r i, .vExplain_r i, .collins_en_cn .bg_doc i, .vBg_doc i, .collins_en_cn li.explain_s i, .collins_en_cn li.explain_c i { display: block; width: 10px; height: 9px; background: url('bg_index.gif') no-repeat scroll -230px -340px transparent; float: left; margin-top: 8px; margin-right: 8px; overflow: hidden; }
+.collins_en_cn li.explain_r i, .vExplain_r i, .collins_en_cn li.explain_s i { background-position: -230px -367px; }
+.vExplain_r { padding: 5px 25px 5px 13px; border: 1px solid rgb(203, 215, 224); background-position: 14px 2px; margin-bottom: 10px; color: rgb(51, 51, 51); line-height: 24px; }
+.vExplain_r ul { padding: 0px 45px 1px 15px; line-height: 20px; }
+.vExplain_r li { padding-bottom: 5px; }
+.hidden { display: none; }
+.button_expan { padding: 10px 0px 0px; }
+.button_expan a { width: 112px; height: 30px; background-position: 0px -156px; display: block; }
+.button_expan a:hover { background-position: 0px -186px; }
+#main_box .synon a, #main_box .cn_synon_box a { padding-right: 6px; }
+.def_list { padding: 0px 0px 9px 9px; }
+.cn_main .def_list { padding: 0px 0px 0px 19px; }
+.def_list dt { color: rgb(51, 51, 51); font-weight: bold; padding: 17px 0px 2px; }
+.def_list h4 { background: url('bg_index.gif') no-repeat scroll -230px -186px transparent; padding-left: 37px; text-indent: -17px; line-height: 24px; font-size: 14px; font-weight: normal; color: rgb(51, 51, 51); cursor: pointer; }
+.def_list h4.bg_down { background: url('bg_index.gif') no-repeat scroll -230px -116px transparent; }
+.def_list h4.ico_not, .ct_example li.bg_not { background: none repeat scroll 0% 0% transparent; }
+.ct_example { padding-left: 20px; color: rgb(102, 102, 102); line-height: 30px; display: none; }
+.tab_content .ct_example { padding-left: 36px; }
+.ct_example li { color: rgb(102, 102, 102); line-height: 20px; background: url('bg_index.gif') no-repeat scroll -244px -546px transparent; padding-left: 10px; }
+.ct_example .syn_snt { padding: 5px 0px; }
+.ct_example .syn_snt li { padding-left: 0px; background: none repeat scroll 0% 0% transparent; }
+.def_list dd { padding: 3px 0px 5px; }
+.industry { display: inline-block; }
+.tongyi { color: rgb(51, 51, 51); }
+.tongyi dl { line-height: 22px; padding: 6px 0px; }
+.tongyi dd { padding-left: 15px; }
+.tongyi dd a { padding-right: 4px; }
+.tongyi .industry h4 { padding: 1px 0px 5px; }
+.tongyi .pos_box { padding: 6px 0px 0px; width: 36px; }
+.industry_box { padding-top: 8px; }
+.industry h4 { font-size: 14px; clear: both; padding: 0px 0px 8px 9px; color: rgb(51, 51, 51); }
+.pos_box { float: left; padding-left: 21px; line-height: 1.5em; clear: both; font-weight: bold; }
+.tab_content .pos_box { width: 31px; }
+.cn_synon_box h4 { padding: 0px 0px 9px; }
+.industry ul { padding: 0px 0px 14px 5px; display: inline-block; width: 560px; float: left; color: rgb(51, 51, 51); }
+.industry li { line-height: 1.5em; padding-left: 20px; text-indent: -15px; }
+.more_data .industry ul { width: 100%; padding: 0px 0px 25px; }
+.more_data .industry li { text-indent: 0px; line-height: 22px; }
+#side_bar { width: 189px; overflow: hidden; height: auto; }
+#ad_right_box { border: 1px solid rgb(217, 226, 233); background-color: rgb(250, 250, 250); padding: 1px; float: right; margin-top: 0px; width: 185px; }
+#ad_right_box .hide { display: none; }
+#dict_right5 { border: 1px solid rgb(217, 226, 233); float: right; width: 187px; margin-top: 16px; }
+.tab_tt { background-position: 0px 0px; height: 22px; overflow: hidden; padding: 6px 7px 0px 0px; text-align: right; position: relative; }
+.tab_tt { background: none repeat scroll 0% 0% rgb(245, 247, 252); border-bottom: 1px solid rgb(217, 226, 233); }
+.tab_tt span { color: rgb(104, 155, 206); float: left; font-weight: bold; margin-top: 3px; position: absolute; left: 0px; top: 3px; width: 60px; }
+.tab_tt li.ad_tab_hover a:link, .tab_tt li.ad_tab_hover a:visited, .day_eng h5 a:link, .day_eng h5 a:visited, .ad_list a:link, .ad_list a:visited { color: rgb(67, 114, 182); }
+.tab_main { height: 88px; overflow: hidden; padding: 8px 0px 0px 6px; width: 181px; }
+.tab_main dl { color: rgb(102, 102, 102); float: left; font-weight: bold; width: 66px; }
+.tab_main img, .tab_main dt { border: 0px none; height: 60px; overflow: hidden; width: 60px; }
+.tab_main dd { height: 15px; overflow: hidden; padding-top: 6px; }
+.tab_main p { height: 15px; overflow: hidden; padding-bottom: 7px; }
+.day_eng { padding: 6px 0px 7px 6px; }
+.day_eng h5 { height: 17px; overflow: hidden; text-align: left; width: 172px; }
+.tab_main a:link, .tab_main a:visited { color: rgb(102, 102, 102); }
+.tab_main a:hover { color: rgb(0, 103, 206); text-decoration: underline; }
+.day_eng h5 a:link, .day_eng h5 a:visited { font-size: 12px; line-height: 17px; padding: 10px 0px 2px; }
+.day_eng li { clear: both; float: left; height: 23px; overflow: hidden; padding-bottom: 7px; text-align: left; width: 180px; }
+.day_eng img { vertical-align: middle; }
+.ad_list { color: rgb(51, 51, 51); padding: 8px 5px 2px; width: 177px; border: 1px solid rgb(217, 226, 233); float: right; margin-top: 16px; }
+.ad_list dl { padding-bottom: 13px; }
+.ad_list dt, .ad_list dd { line-height: 20px; }
+#main_box .part_list a, #main_box .tab_list li a, #main_box .new_word a, #main_box .part_main h3 a { text-decoration: none; }
+.words { padding: 0px; width: 100%; border: 0px none; }
+.word_nav, .word_nav2 { height: 30px; border-left: 1px solid rgb(217, 226, 233); }
+.word_nav li, .word_nav2 li { float: left; line-height: 32px; text-align: center; color: rgb(67, 114, 182); width: 94px; height: 32px; background: url('bg_index.gif') no-repeat scroll -88px -371px transparent; }
+.word_nav li.current, .word_nav2 li.current { background: url('bg_index.gif') no-repeat scroll -88px -337px transparent; }
+.word_nav li a:link, .word_nav li a:visited, .word_nav2 li a:link, .word_nav2 li a:visited { color: rgb(51, 51, 51); }
+.word_nav li a:hover, .word_nav2 li a:hover { text-decoration: none; }
+.word_nav li.current a:link, .word_nav li.current a:visited, .word_nav2 li.current a:link, .word_nav2 li.current a:visited { color: rgb(67, 114, 182); font-weight: bold; display: block; }
+.words_main, .words_main2 { border-right: 1px solid rgb(217, 226, 233); border-width: medium 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgb(217, 226, 233) rgb(217, 226, 233); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; padding: 6px 0px; font-size: 14px; }
+.words_main { height: 131px; }
+.words_main ul { overflow: hidden; padding-right: 6px; }
+.words_main li { width: 82px; height: 22px; float: left; overflow: hidden; padding-left: 8px; line-height: 22px; }
+.word_next { text-align: right; font-size: 12px; padding: 6px 10px 0px 0px; height: 15px; clear: both; }
+#footer { padding-top: 10px; }
+.ct_example ul li { line-height: 180%; }
+.vDef_list { padding: 10px 0px 5px 30px; line-height: 150%; color: rgb(51, 51, 51); }
+.vDef_list a.ico_sound { display: inline-block; float: none; }
+.vDef_list dt { margin-bottom: 4px; text-indent: -17px; }
+.vDef_list p { font-size: 12px; color: rgb(153, 153, 153); margin-top: 8px; }
+.ct_example .syn_snt li span a { display: inline-block; }
+.vNet { padding-left: 9px; }
+.vNetH4 { margin-top: 20px; }
+.vNet .def_list h4 { margin-bottom: 6px; }
+.words_main2 img { width: 178px; margin: 0px 5px; }
+.words_main2 p.vNews_s { text-align: center; font-size: 12px; font-weight: 700; padding-top: 5px; }
+.words_main2 p.vNews_s a { text-decoration: underline; color: rgb(35, 111, 212); }
+.words_main2 p.vNews_s a:hover { text-decoration: none; }
+.words_main2 strong { font-weight: 700; color: rgb(51, 51, 51); font-size: 12px; padding: 0px 7px 5px; display: block; }
+.vNews_s_c { padding-bottom: 10px; }
+.vNews_s_c li { background: url('bg_index.gif') no-repeat scroll -244px -546px transparent; padding-left: 10px; margin-left: 7px; height: 20px; overflow: hidden; text-overflow: ellipsis; }
+.vNews_s_c li a, .vNews_s_c li a:link, .vNews_s_c li a:visited { font-size: 12px; color: rgb(102, 102, 102); line-height: 20px; height: 20px; }
+.vNews_s_c li a:hover { color: rgb(35, 111, 212); text-decoration: underline; }
+.word_nav2 { border-bottom: 1px solid rgb(217, 226, 233); height: 31px; }
+.vRecomm { border-right: 1px solid rgb(231, 231, 231); border-width: 2px 1px 1px; border-style: solid; border-color: rgb(35, 111, 212) rgb(231, 231, 231) rgb(231, 231, 231); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; margin-top: 17px; float: left; width: 768px; }
+.vRecomm .h5 { background: none repeat scroll 0% 0% rgb(244, 244, 244); color: rgb(51, 51, 51); font-size: 14px; font-weight: 700; margin: 1px 1px 0px; padding: 0px 7px; height: 30px; line-height: 29px; }
+#main_box .vRecomm .h5 a { float: right; font-weight: 100; font-size: 12px; color: rgb(12, 170, 53); text-decoration: none; }
+#main_box .vRecomm .h5 a:hover { text-decoration: underline; }
+.vRecomm ul { border-top: 1px solid rgb(231, 231, 231); padding: 15px 8px 12px; height: auto; overflow: hidden; }
+.vRecomm ul li { margin: 0px 8px; float: left; }
+.vRecomm ul li img { border: 1px solid rgb(218, 218, 218); padding: 1px; background: none repeat scroll 0% 0% rgb(255, 255, 255); width: 168px; height: 92px; }
+.vRecomm .h6 { width: 170px; height: 24px; line-height: 26px; overflow: hidden; text-align: center; font-size: 12px; }
+#main_box .vRecomm .h6 a { font-size: 12px; color: rgb(121, 121, 121); text-decoration: none; }
+#main_box .vRecomm .h6 a:hover { text-decoration: underline; color: rgb(35, 111, 212); }
+.vCri { display: inline-block; float: left; height: 20px; position: relative; }
+.vCri_laba { display: inline-block; float: left; width: 15px; height: 13px; background: url('bg_index.gif') no-repeat scroll 0px -69px transparent; margin: 2px 0px -4px 4px; cursor: pointer; }
+.vCri_laba:hover { background: url('bg_index.gif') no-repeat scroll -15px -69px transparent; }
+.vCriTip { position: absolute; width: 247px; height: 30px; background: url('bg_index.gif') no-repeat scroll 0px -413px transparent; top: 18px; left: -85px; box-shadow: 3px 4px 4px rgb(217, 221, 229); }
+#layout { padding-top: 1px; }
+#main_box { width: 784px; position: relative; }
+#dict_main, .dictbar { width: 640px; }
+#dict_main { border: medium none; float: left; margin-left: 120px; min-height: 505px; }
+.dictbar { padding: 17px 0px 0px; }
+#side_bar { width: 176px; margin-top: 16px; float: right; }
+#ad_right_box { border: medium none; width: 176px; }
+#dict_right5 { width: 174px; }
+.ad_list { width: 164px; }
+.words { width: 100%; }
+.word_nav li, .word_nav2 li { width: 88px; }
+.word_nav li.current, .word_nav2 li.current { width: 87px; }
+.words_main li { width: 76px; }
+.vNews_s_c { padding-right: 5px; }
+.words_main2 img { width: 164px; }
+#center { padding-top: 0px; }
+.tab_list { padding: 0px; background: none repeat scroll 0% 0% transparent; border-bottom: 1px solid rgb(231, 231, 231); height: 31px; margin-bottom: 10px; }
+.tab_list li { border-width: 1px 1px medium; border-style: solid solid none; border-color: rgb(231, 231, 231) rgb(231, 231, 231) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; margin-top: 1px; }
+#main_box .tab_list li a, #main_box .tab_list li.text_red a { background: none repeat scroll 0% 0% rgb(244, 244, 244); color: rgb(102, 102, 102); }
+.tab_list li.current { border-top: 2px solid rgb(35, 111, 212); margin-top: 0px; height: 30px; }
+#main_box .tab_list li.current, #main_box .tab_list li.current a { background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(51, 51, 51); font-weight: 700; }
+#main_box .tab_list li a:hover { background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
+#main_box .tab_list li.current a:hover, #main_box .tab_list li.text_red a:hover { color: rgb(51, 51, 51); }
+.tab_list h2, .tab_list h3 { font-size: 14px; }
+.dict_nav { width: 118px; background: none repeat scroll 0% 0% rgb(255, 255, 255); position: absolute; top: -1px; }
+.dict_nav ul { border-top: 1px solid rgb(230, 230, 230); width: 112px; }
+.dict_nav ul li { background: none repeat scroll 0% 0% rgb(248, 248, 248); border-right: 1px solid rgb(230, 230, 230); border-width: medium 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgb(230, 230, 230) rgb(230, 230, 230); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; line-height: 100%; }
+#main_box .dict_nav ul li a { display: block; padding: 9px 0px 8px 16px; color: rgb(102, 102, 102); text-decoration: none; }
+#main_box .dict_nav ul li a:hover { background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(51, 51, 51); }
+.dict_nav ul li.dict_nav_hover { border-left: 2px solid rgb(35, 111, 212); background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(51, 51, 51); }
+#main_box .dict_nav ul li.dict_nav_hover a { font-weight: 700; color: rgb(51, 51, 51); }
+.dict_nav dl { border-right: 1px solid rgb(230, 230, 230); border-width: medium 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgb(230, 230, 230) rgb(230, 230, 230); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; width: 110px; padding-bottom: 12px; }
+.dict_nav dt { padding: 15px 0px 4px 16px; color: rgb(102, 102, 102); font-weight: 700; }
+.dict_nav dd { padding: 0px 16px; line-height: 24px; height: 24px; overflow: hidden; word-wrap: break-word; word-break: break-all; }
+.dict_nav dl.dict_nav_his { border-bottom: medium none; }
+#main_box .dict_nav dd a { color: rgb(102, 102, 102); text-decoration: none; }
+#main_box .dict_nav dd a:hover { color: rgb(35, 111, 212); }
+.dl_line { height: 1px; width: 110px; border-right: 1px solid rgb(230, 230, 230); font-size: 1px; overflow: hidden; }
+.dl_line div { margin: 0px 8px; border-top: 1px solid rgb(230, 230, 230); }
+.up, .down { margin-right: 0px; width: 14px; }
+#layout { position: relative; }
+.pendant { width: 46px; position: fixed; left: 50%; bottom: 79px; margin-left: 496px; }
+.pendant_top { display: block; width: 46px; height: 46px; background: url('bg_index.gif') no-repeat scroll -170px 0px transparent; }
+.pendant_t, .pendant_b { width: 46px; height: 2px; overflow: hidden; font-size: 1px; background: url('bg_index.gif') no-repeat scroll -178px -387px transparent; }
+.pendant_t { background-position: -178px -384px; margin-top: 16px; }
+.pendant_l { background: none repeat scroll 0% 0% rgb(238, 238, 238); border-left: 1px solid rgb(232, 232, 232); border-right: 1px solid rgb(232, 232, 232); }
+.pendant_l a { border-bottom: 1px solid rgb(232, 232, 232); font-size: 12px; color: rgb(135, 135, 135); text-shadow: 1px 1px 0px rgb(255, 255, 255); line-height: 28px; height: 28px; text-align: center; display: block; position: relative; }
+.pendant_l a span { display: block; width: 16px; height: 18px; background: url('top.gif') no-repeat scroll -217px 0px transparent; position: absolute; top: -7px; right: -4px; color: rgb(255, 255, 255); overflow: hidden; text-shadow: none; font: 700 11px/16px Arial; }
+.caption { background: none repeat scroll 0% 0% rgb(247, 247, 246); }
+.caption .text_blue, .caption b, .caption .num, .caption .st { color: rgb(51, 51, 51); }
+.search_foot { border-top: 1px solid rgb(230, 230, 230); border-bottom: 1px solid rgb(230, 230, 230); background: none repeat scroll 0% 0% rgb(248, 249, 253); height: auto; overflow: hidden; margin-top: 16px; }
+.search_foot_box { width: 960px; margin: 16px auto; height: auto; overflow: hidden; }
+.search_foot_box .iCiBa_open_suggest { float: left; width: 769px; }
+.search_foot_box .header_ad { margin: 0px; }
+#footer { padding-top: 10px; width: 960px; margin: 0px auto 50px; }
+.taobao { padding: 0px 14px 0px 0px; border: medium none; }
+.simple, .collins, .specialties, .Bilingual, .baidu, .oxford { padding-top: 15px; }
+.simple {  }
+.group_pos p { width: 640px; }
+.label_list { width: 560px; }
+.tips_main { left: -65px; }
+.dictbar .tips_main { left: 486px; }
+.bg_tips { left: 48px; }
+.caption .st .bg_tips { left: 0px; }
+.eg, .us { font-size: 13px; }
+.group_inf a { padding-right: 5px; }
+.caption .st { z-index: 5; }
+.tips_box { z-index: 6; }
+.tips_main { z-index: 10; }
+.vhangye { padding-top: 0px; height: auto; overflow: hidden; }
+.vCd_li { color: rgb(153, 153, 153); padding-bottom: 16px; padding-top: 10px; }
+.vCd_li span { font-weight: 100; font-size: 12px; color: rgb(36, 111, 213); margin: 0px 10px; cursor: pointer; display: inline-block; line-height: 22px; }
+.vCd_li span.hover { color: rgb(51, 51, 51); cursor: default; font-weight: 700; }
+.vHy ul { padding: 0px 0px 8px 5px; }
+.vHy .pos_box { color: rgb(102, 102, 102); padding-left: 10px; }
+.head_ad { width: 960px; height: 48px; overflow: hidden; margin: 0px auto; position: relative; z-index: 1000; }
+#Jihuajiyi { z-index: 1001; }
+.dict_nav_his { position: relative; }
+.ezfm { position: fixed; top: 50%; margin-top: -78px; margin-left: -90px; }
+.ezfm a { display: block; width: 70px; height: 157px; background: url('go_new.gif') repeat scroll 0% 0% rgb(255, 255, 255); }
+.h5 { color: rgb(255, 102, 0); line-height: 40px; font-weight: 700; margin-bottom: 30px; }
+.star { background: url('bg_index.gif') repeat scroll 0px -88px transparent; height: 16px; width: 88px; }
+.star_current { background: url('bg_index.gif') repeat scroll 0px -105px transparent; height: 16px; width: 90px; z-index: 6; }
+#iciba_common_top { position: absolute; top: 0px; width: 100%; }
+.header { position: absolute; top: 32px; width: 100%; }
+#layout { margin-top: 182px; }
+.header { background: none repeat scroll 0% 0% rgb(248, 249, 253); clear: both; height: auto; border-bottom: 1px solid rgb(230, 230, 230); }
+.headerC { width: 960px; margin: 0px auto; }
+.header_logo, .header_sea { float: left; }
+.header_logo { margin-top: 29px; margin-right: 16px; }
+.header_sea { width: 642px; margin-top: 23px; }
+.header_nav { margin-bottom: 7px; line-height: 100%; }
+.header_nav a { margin-right: 16px; color: rgb(51, 51, 51); position: relative; }
+.header_nav a:hover { color: rgb(35, 111, 212); text-decoration: underline; }
+.header_nav strong { color: rgb(35, 111, 212); font-weight: 700; margin-right: 14px; }
+.header_nav a .znew { background: url('top.gif') no-repeat scroll -209px -19px transparent; display: block; height: 16px; line-height: 100px; overflow: hidden; position: absolute; right: -18px; top: -13px; width: 24px; }
+.iCiBa_open_suggest { position: absolute; z-index: 1000; font-family: Arial,Helvetica,sans-serif; width: 640px; }
+.iCiBa_open_suggest_i { margin-right: 171px; background: url('top.gif') repeat-x scroll left bottom transparent; height: 36px; }
+.iCiBa_open_suggest_input { border-color: rgb(212, 212, 212); border-style: solid; border-width: 1px; height: 30px; line-height: 30px; padding: 2px 50px 2px 9px; width: 100%; background: url('top.gif') repeat-x scroll 1px -73px rgb(255, 255, 255); color: rgb(51, 51, 51); font-size: 18px; }
+.iCiBa_open_suggest_input_focus, .iCiBa_open_suggest_input:focus { border-color: rgb(35, 111, 212); }
+.iCiBa_open_suggest_button { border: medium none; position: absolute; width: 114px; height: 36px; top: 0px; right: 0px; background: url('top.gif') no-repeat scroll -1px -35px transparent; padding: 0px; margin: 0px; outline: medium none; cursor: pointer; }
+.iCiBa_open_suggest_span { display: block; width: 1px; height: 33px; background: url('top.gif') no-repeat scroll -160px 0px transparent; position: absolute; left: 1px; top: 1px; }
+.iCiBa_open_suggest_handwrite, .iCiBa_open_suggest_drop { display: block; width: 16px; height: 16px; position: absolute; background: url('top.gif') no-repeat scroll -164px 0px transparent; right: 124px; top: 10px; }
+.iCiBa_open_suggest_handwrite:hover { background-position: -164px -16px; }
+.iCiBa_open_suggest_drop { background-position: -185px 0px; top: 10px; right: 151px; width: 9px; }
+.iCiBa_open_suggest_drop:hover { background-position: -185px -16px; }
+#pull_down { position: absolute; width: 527px; top: 35px; visibility: hidden; }
+#icibaSugContent, #icibaSugBottom { border: 1px solid rgb(198, 198, 198); background: none repeat scroll 0% 0% rgb(255, 255, 255); line-height: 170%; color: rgb(51, 51, 51); font-size: 14px; }
+#icibaSugContent { border-bottom: medium none; }
+#icibaSugBottom { border-top: medium none; }
+#icibaSugContent ul, #icibaSugContent li, #icibaSugBottom p { margin: 0px; padding: 0px; list-style: none outside none; }
+#icibaSugBottom { background: none repeat scroll 0% 0% rgb(240, 240, 240); height: 22px; line-height: 22px; text-align: right; font-size: 12px; }
+#icibaSugBottom a { color: rgb(52, 102, 153); text-decoration: none; padding-right: 5px; }
+.header_ad { border: 1px solid rgb(219, 219, 219); background: none repeat scroll 0% 0% rgb(255, 255, 255); float: right; height: 34px; width: 174px; overflow: hidden; margin: 44px 0px 22px; }
+.header_ad a { color: rgb(35, 111, 212); font-size: 12px; line-height: 34px; margin: 0px 10px; }
+.header_logo a { display: block; width: 112px; height: 52px; background: url('bg_index.gif') no-repeat scroll 0% 0% transparent; overflow: hidden; }
+.group_inf a, .ct_example li a, .industry li a, .tongyi dd a, .label_list a { text-decoration: underline; }
+.group_inf a:hover, .ct_example li a:hover, .industry li a:hover, .tongyi dd a:hover, .label_list a:hover { text-decoration: none; }
+.vScb { display: block; width: 17px; height: 17px; background: url('bg_index.gif') no-repeat scroll -176px -529px transparent; float: right; margin-right: 10px; margin-top: 3px; font-size: 12px; color: rgb(255, 255, 255); font-weight: 700; overflow: hidden; line-height: 17px; text-align: center; padding-left: 3px; }
+.iCiBa_open_tip { border: 1px solid rgb(187, 187, 187); border-radius: 3px 3px 3px 3px; width: 376px; height: auto; background: none repeat scroll 0% 0% rgb(255, 255, 255); z-index: 50001; position: fixed; top: 50%; left: 50%; margin-left: -188px; margin-top: -150px; display: none; }
+.iCiBa_open_tip_h1 { color: rgb(90, 90, 90); font-size: 14px; font-weight: 700; height: 33px; background: url('bg_index_a.gif') repeat-x scroll 0px -6px transparent; padding-left: 15px; line-height: 37px; margin-bottom: 30px; overflow: hidden; }
+.iCiBa_open_tip_h1 a { display: block; width: 11px; height: 10px; overflow: hidden; background: url('bg_index.gif') no-repeat scroll -178px -403px transparent; float: right; margin-top: 13px; margin-right: 16px; }
+.iCiBa_open_tip_h1 a:hover { background-position: -207px -403px; }
+.iCiBa_open_tip {  }
+.iCiBa_open_tip_main {  }
+.iCIba_open_vSet label { padding-left: 36px; margin-bottom: 20px; color: rgb(90, 90, 90); display: block; float: left; }
+.iCIba_open_vSet label input { margin-right: 10px; vertical-align: middle; }
+.iCIba_open_vSet_p { font-size: 12px; color: rgb(35, 111, 212); clear: both; padding-left: 59px; padding-bottom: 26px; }
+.iCIba_open_vSet_a { margin-left: 50px; margin-bottom: 20px; clear: both; height: auto; overflow: hidden; }
+.iCIba_open_vSet_a a { display: block; width: 80px; height: 29px; overflow: hidden; float: left; background: url('bg_index_a.gif') no-repeat scroll -114px -39px transparent; margin-left: 40px; }
+.iCIba_open_vSet_a a.iCIba_open_vSet_a2 { background-position: -194px -39px; }
+.pendant_w { display: block; width: 46px; height: 52px; background: url('bg_weixin.gif') no-repeat scroll -185px 0px transparent; margin-top: 16px; }
+.pendant_w:hover { background-position: -185px -52px; }
+.pendant_wx { width: 185px; height: 212px; background: url('bg_weixin.gif') no-repeat scroll 0% 0% transparent; overflow: hidden; position: absolute; bottom: -79px; left: -201px; display: none; }
+.cl {  }
+.cl:after { content: ""; display: block; height: 0px; clear: both; }
+.code { position: relative; display: inline-block; z-index: 1001; color: rgb(51, 51, 51); cursor: pointer; }
+.code-mod { border: 1px solid rgb(219, 219, 219); width: 237px; padding: 0px 15px; position: absolute; top: 15px; z-index: 9999; background-color: rgb(255, 255, 255); font-size: 12px; display: none; }
+.code-mod01 { color: rgb(102, 102, 102); font-weight: bold; padding: 15px 0px; }
+.code-mod02 a { color: rgb(47, 119, 214); padding: 15px 0px; display: block; }
+.code-mod02 a:hover { text-decoration: underline; }
+.code-list li { width: 88px; text-align: center; }
+.code-list li img { margin-bottom: 10px; }
+.code-list-l { float: left; }
+.code-list-r { float: right; }
+.correcting { font-size: 12px; margin-top: 10px; clear: both; }
+.correcting span { color: rgb(184, 183, 183); display: inline-block; margin-right: 5px; }
+.correcting a { display: inline-block; background: url('version1.png') no-repeat scroll left top transparent; width: 52px; height: 19px; line-height: 19px; text-align: center; color: rgb(153, 153, 153) ! important; margin: 0px 8px; }
+.correcting a:hover { background: url('version1.png') no-repeat scroll left -20px transparent; text-decoration: none; }
+.pop_mod { background-color: rgb(255, 255, 255); width: 429px; z-index: 50001; position: fixed; border: 1px solid rgb(187, 187, 187); top: 50%; left: 50%; margin-top: -225px; margin-left: -215px; display: none; }
+.pop_mod .pop_tit { background: url('pop-bg.jpg') repeat-x scroll 0% 0% transparent; height: 33px; line-height: 33px; padding-left: 15px; }
+.pop_tit_text { line-height: 37px; display: inline-block; float: left; color: rgb(90, 90, 90); font-size: 14px; font-weight: bold; }
+.pop_tit .close { float: right; margin-right: 15px; background: url('bg_index.gif') no-repeat scroll -178px -403px transparent; width: 11px; height: 10px; margin-top: 14px; }
+.pop_con06 { padding: 20px 0px 30px 27px; }
+.error_tit { font-family: 'Arial'; color: rgb(59, 147, 238); font-size: 18px; padding-bottom: 15px; }
+.error_list_tit { color: rgb(85, 85, 85); font-size: 14px; padding-bottom: 10px; }
+.error_list { padding-bottom: 10px; width: 350px; }
+.error_list ul li { color: rgb(51, 51, 51); font-size: 12px; float: left; margin-right: 25px; margin-bottom: 10px; }
+.error_list ul li span { color: rgb(206, 205, 205); font-size: 12px; }
+.error_des { color: rgb(85, 85, 85); font-size: 14px; padding-bottom: 5px; }
+.error_text { margin-bottom: 20px; }
+.error_text textarea { border: 1px solid rgb(171, 171, 171); padding: 2px 2px 2px 7px; width: 366px; max-width: 366px; min-width: 366px; height: 86px; max-height: 86px; min-height: 86px; resize: none; color: rgb(153, 153, 153); font-size: 14px; line-height: 22px; overflow: auto; }
+.error_btn { height: 35px; }
+.error_btn span { font-size: 12px; color: rgb(255, 0, 0); display: inline-block; margin-left: 15px; line-height: 35px; height: 35px; }
+.error_list ul li input { vertical-align: -3px; margin-right: 5px; }
+.pop-touch { border: 1px solid rgb(219, 219, 219); font-size: 14px; color: rgb(206, 205, 205); padding: 2px 2px 2px 7px; width: 366px; height: 22px; line-height: 22px; }
+.word_button_blue { display: inline-block; height: 29px; text-align: center; line-height: 29px; margin: 7px 0px; }
+a.word_button_blue { width: 80px; color: rgb(255, 255, 255); font-weight: 700; cursor: pointer; background: url('sub-btn.png') no-repeat scroll 0% 0% transparent; text-shadow: 0px 1px 0px rgb(78, 148, 37); height: 29px; }
+#main_box .oxford .tab_list li.current, #main_box .oxford .tab_list li.current a { font-weight: 100; color: rgb(35, 111, 212); }
+#main_box .oxford .tab_list li { position: relative; }
+#main_box .oxford .tab_list li a.oxford_gb, #main_box .oxford a.oxford_gb { position: absolute; display: block; width: 14px; height: 16px; background: url('bg_index2.gif') no-repeat scroll -78px -547px transparent; top: -9px; right: -8px; padding: 0px; overflow: hidden; }
+#main_box .oxford .tab_list li a.oxford_gb:hover, #main_box .oxford a.oxford_gb:hover { background-position: -93px -547px; }
+.oxford_buy { background: none repeat scroll 0% 0% rgb(255, 252, 238); font-size: 12px; padding: 10px; height: auto; line-height: 20px; margin-bottom: 17px; position: relative; }
+.oxford_buy strong, .oxford_buy b { color: rgb(227, 22, 59); }
+#main_box .oxford_buy a { display: block; width: 76px; height: 29px; background: url('bg_index2.gif') no-repeat scroll 0px -547px transparent; color: rgb(255, 255, 255); text-align: center; font-size: 12px; text-decoration: none; line-height: 26px; position: absolute; right: 10px; top: 5px; }
+#main_box .oxford_buy a:hover { color: rgb(255, 255, 255); }
+.oxford { color: rgb(51, 51, 51); line-height: 20px; padding-bottom: 15px; font-family: "lucida sans unicode",arial; }
+.oxford b { font-style: normal; font-weight: 700; display: inline; }
+.oxford_content a { text-decoration: underline; }
+.oxford_content a:hover { text-decoration: none; }
+#main_box .oxford_buy a.oxford_buy_a { display: inline; position: static; float: none; background: none repeat scroll 0% 0% transparent; color: rgb(227, 22, 59); text-decoration: underline; font-size: 12px; line-height: 20px; }
+#main_box .oxford_buy a.oxford_buy_a:hover { text-decoration: none; color: rgb(227, 22, 59); }
+.oxford_beat { display: block; width: 27px; height: 13px; background: url('bg_index2.gif') no-repeat scroll -149px -547px transparent; left: -1px; top: -8px; position: absolute; }
+.oxford_toBuy { width: 48px; height: 16px; background: url('bg_index2.gif') no-repeat scroll -176px -547px transparent; position: absolute; right: 40px; margin-top: 11px; display: none; }
+/* ::::: http://cdn.iciba.com/web/common_top/top.css ::::: */
+
+.iciba_common_top { border-bottom: 1px solid rgb(219, 227, 247); background: none repeat scroll 0% 0% rgb(241, 244, 252); font-size: 12px; height: 31px; color: rgb(102, 102, 102); position: relative; z-index: 10000; }
+.iciba_common_top a, .iciba_common_top strong, .iciba_common_top span { font-size: 12px; }
+.iciba_common_top_fl { float: left; font-weight: 100; line-height: 32px; margin-right: 5px; }
+.iciba_common_top_c { float: left; line-height: 32px; color: rgb(102, 102, 102); text-decoration: none; font-family: Arial; max-width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.iciba_common_top_c:link, .iciba_common_top_c:visited { color: rgb(102, 102, 102); }
+.iciba_common_top_c:hover, .iciba_common_top_user_name p a:hover { color: rgb(35, 111, 212); text-decoration: underline; }
+.iciba_common_laba { float: left; display: block; width: 15px; height: 13px; overflow: hidden; background: url('top.gif') no-repeat scroll 0% 0% transparent; margin: 9px 9px 0px 5px; }
+.iciba_common_laba:hover { background-position: 0px -13px; }
+.iciba_common_top_lx { float: left; border: 1px solid rgb(219, 227, 247); background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 3px 10px 2px; line-height: 100%; color: rgb(35, 111, 212); text-decoration: none; margin-top: 7px; }
+.iciba_common_top_lx:hover { border: 1px solid rgb(188, 202, 238); color: rgb(35, 111, 212); text-decoration: none; }
+.iciba_common_top_func { float: right; }
+.iciba_common_top_func_a { border-left: 1px solid rgb(219, 227, 247); padding: 0px 15px 0px 14px; line-height: 31px; display: block; float: left; color: rgb(102, 102, 102); text-decoration: none; }
+.iciba_common_top_func_a:link, .iciba_common_top_func_a:visited { color: rgb(102, 102, 102); }
+.iciba_common_top_func_a:hover { color: rgb(51, 51, 51); background: none repeat scroll 0% 0% rgb(248, 249, 253); text-decoration: none; }
+.iciba_common_top_j { float: left; display: block; width: 7px; height: 4px; overflow: hidden; background: url('top.gif') no-repeat scroll -15px 0px transparent; margin: 13px 0px 0px 5px; }
+.iciba_common_top_func_web, .iciba_common_top_func_user { border-right: 1px solid rgb(219, 227, 247); }
+.iciba_common_top_func_web strong, .iciba_common_top_func_user strong, .iciba_common_top_sms strong { float: left; font-weight: 100; }
+.iciba_common_top_func_web:hover, .iciba_common_top_func_user:hover, .iciba_common_top_func_hover, .iciba_common_top_sms_a:hover, .iciba_common_top_sms_hover { background: none repeat scroll 0% 0% rgb(255, 255, 255); border-color: rgb(172, 203, 223); }
+.iciba_common_top_func_web:hover .iciba_common_top_j, .iciba_common_top_func_user:hover .iciba_common_top_j, .iciba_common_top_func_hover .iciba_common_top_j { background-position: -15px -4px; }
+.iciba_common_top_func_map, #iciba_common_top_login_a { float: left; position: relative; z-index: 10000; }
+.iciba_common_top_func_list { position: absolute; border-right: 1px solid rgb(172, 203, 223); border-width: medium 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgb(172, 203, 223) rgb(172, 203, 223); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; background: url('top.gif') no-repeat scroll 0px -115px rgb(255, 255, 255); top: 31px; right: 0px; padding-top: 6px; width: 111px; display: none; }
+.iciba_common_top_func_line { border-top: 1px dotted rgb(216, 216, 216); height: 1px; overflow: hidden; font-size: 1px; margin: 5px 15px; }
+.iciba_common_top_func_list a { padding: 0px 14px; height: 30px; line-height: 30px; color: rgb(102, 102, 102); text-decoration: none; display: block; margin: 0px; position: relative; }
+.iciba_common_top_func_list_m { text-align: center; }
+.iciba_common_top_func_list b, .iciba_common_top_user_func b { display: block; width: 16px; height: 16px; overflow: hidden; background: url('top.gif') no-repeat scroll 0% 0% transparent; margin-right: 7px; margin-top: 6px; float: left; }
+.iciba_common_top_func_list b.iciba_common_top_func_list_1 { background-position: -22px 0px; }
+.iciba_common_top_func_list b.iciba_common_top_func_list_2 { background-position: -38px 0px; }
+.iciba_common_top_func_list b.iciba_common_top_func_list_3 { background-position: -54px 0px; }
+.iciba_common_top_func_list b.iciba_common_top_func_list_4 { background-position: -70px 0px; }
+.iciba_common_top_func_list b.iciba_common_top_func_list_5 { background-position: -86px 0px; }
+.iciba_common_top_func_list a:hover, .iciba_common_top_user_func a:hover { background: none repeat scroll 0% 0% rgb(246, 246, 246); color: rgb(35, 111, 212); text-decoration: none; }
+.iciba_common_top_func_list a:hover b.iciba_common_top_func_list_1 { background-position: -22px -16px; }
+.iciba_common_top_func_list a:hover b.iciba_common_top_func_list_2 { background-position: -38px -16px; }
+.iciba_common_top_func_list a:hover b.iciba_common_top_func_list_3 { background-position: -54px -16px; }
+.iciba_common_top_func_list a:hover b.iciba_common_top_func_list_4 { background-position: -70px -16px; }
+.iciba_common_top_func_list a:hover b.iciba_common_top_func_list_5 { background-position: -86px -16px; }
+#iciba_common_top_box { padding: 0px 16px; }
+.iciba_common_top_ad { display: block; width: 209px; height: 26px; background: url('top_ad.gif') no-repeat scroll 0% 0% transparent; float: right; margin-top: 6px; margin-right: 16px; }
+.iciba_common_top_ad:hover { background-position: 0px -29px; }
+.head_ad4, .head_ad4 li { margin: 0px; padding: 0px; list-style: none outside none; }
+.head_ad4 li { float: left; margin: 0px 4px; }
+.head_ad4 li a { display: block; width: 155px; height: 42px; font-size: 14px; line-height: 42px; overflow: hidden; font-weight: 700; color: rgb(12, 170, 53); background: url('pic_s_2012.12.26.gif') no-repeat scroll 0% 0% transparent; text-decoration: none; padding-left: 50px; padding-right: 27px; }
+.head_ad4 li a.head_ad4_2 { background-position: -240px 0px; }
+.head_ad4 li a.head_ad4_3 { background-position: -480px 0px; }
+.head_ad4 li a.head_ad4_4 { background-position: -720px 0px; }
+.hp_footer { border-top: 0px solid rgb(230, 230, 230); font-size: 12px; font-family: Arial,Helvetica,sans-serif; text-align: center; color: rgb(102, 102, 102); padding: 0px; clear: both; }
+.hp_footer p { padding: 0px; margin: 5px 0px 0px; line-height: 24px; }
+.hp_footer a:link, .hp_footer a:visited { text-decoration: none; color: rgb(102, 102, 102); }
+.hp_footer a:hover { text-decoration: underline; color: rgb(67, 114, 182); }
+.hp_footer p.text_r a { margin: 0px 5px; }
+.hp_beian { display: inline-block; width: 15px; height: 19px; overflow: hidden; background: url('bg_index.gif') no-repeat scroll -195px -125px transparent; margin-bottom: -2px; margin-right: 3px; }
+/* ::::: http://open.iciba.com/huaci/mini.css ::::: */
+
+#icIBahyI-yi { width: 22px; height: 22px; overflow: hidden; position: absolute; background: url('bg.gif') no-repeat scroll -135px 0px transparent; cursor: pointer; z-index: 99997; }
+#icIBahyI-main_box { width: 280px; z-index: 99998; position: absolute; font-family: Arial,Helvetica,sans-serif; font-size: 12px; text-align: left; }
+#icIBahyI-main_box .icIBahyI-loading { background: url('loading.gif') no-repeat scroll center center rgb(251, 251, 251); height: 150px; border-left: 1px solid rgb(195, 195, 195); border-right: 1px solid rgb(195, 195, 195); }
+#icIBahyI-main_box .icIBahyI-main_title { height: 24px; padding-left: 23px; line-height: 24px; color: rgb(255, 255, 255); background: url('bg.gif') no-repeat scroll 0px -55px transparent; position: relative; z-index: 99999; }
+#icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-gb, #icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-dq, #icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-dq2, #icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-sz { float: right; display: block; width: 18px; height: 17px; background: url('bg.gif') no-repeat scroll 0% 0% transparent; margin-top: 4px; margin-right: 5px; }
+#icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-gb { background-position: -214px -17px; }
+#icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-dq2 { background-position: -160px -17px; }
+#icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-gb:hover { background-position: -232px -17px; }
+#icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-gb:active { background-position: -250px -17px; }
+#icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-dq2:hover { background-position: -178px -17px; }
+#icIBahyI-main_box .icIBahyI-main_title a.icIBahyI-dq2:active { background-position: -196px -17px; }
+#icIBahyI-main_box .icIBahyI-sz_list { width: 95px; border: 1px solid rgb(184, 184, 184); position: absolute; background: none repeat scroll 0% 0% rgb(255, 255, 255); top: 18px; right: -48px; display: none; }
+#icIBahyI-main_box .icIBahyI-sz_list a { border-bottom: 1px solid rgb(228, 228, 228); line-height: 28px; height: 28px; color: rgb(102, 102, 102) ! important; text-decoration: none ! important; display: block; padding-left: 11px; overflow: hidden; }
+#icIBahyI-main_box .icIBahyI-sz_list a:hover { background: none repeat scroll 0% 0% rgb(98, 172, 253); color: rgb(255, 255, 255) ! important; }
+#icIBahyI-main_box .icIBahyI-contTop { display: block; height: 2px; overflow: hidden; background: url('bg.gif') no-repeat scroll 0px -145px transparent; }
+#icIBahyI-main_box .icIBahyI-contB { display: block; height: 3px; overflow: hidden; background: url('bg.gif') no-repeat scroll 0px -148px transparent; margin-top: -3px; }
+#icIBahyI-main_box .icIBahyI-search { height: 39px; background: url('bg.gif') no-repeat scroll 0px -80px transparent; border-bottom: 1px solid rgb(195, 195, 195); padding: 0px 5px; }
+#icIBahyI-main_box .icIBahyI-search a, .icIBahyI-search input { border: medium none; background: none repeat scroll 0% 0% transparent; margin-top: 9px; }
+#icIBahyI-main_box .icIBahyI-search input { height: 21px; line-height: 21px; padding: 0px 5px; margin-left: 10px; margin-right: 5px; color: rgb(35, 35, 35); width: 185px; float: left; }
+#icIBahyI-main_box a.icIBahyI-sear { float: left; display: block; width: 59px; height: 23px; font-weight: 700; color: rgb(47, 47, 47) ! important; text-decoration: none ! important; text-align: center; line-height: 23px; margin-top: 8px; outline: medium none; }
+#icIBahyI-main_box a.icIBahyI-sear:hover { background: url('bg.gif') no-repeat scroll -59px -120px transparent; }
+#icIBahyI-main_box a.icIBahyI-sear:active { background: url('bg.gif') no-repeat scroll -118px -120px transparent; }
+#Jihuajiyi { width: 106px; height: 26px; overflow: hidden; background: url('bg.gif') no-repeat scroll left top transparent; }
+#Jihuajiyi a { display: block; width: 47px; height: 24px; float: right; margin-top: 1px; margin-right: 1px; }
+#icIBahyI-main_box .icIBahyI-CB { border-left: 1px solid rgb(195, 195, 195); border-right: 1px solid rgb(195, 195, 195); background-color: rgb(233, 244, 255); }
+#icIBahyI-main_box .icIBahyI-down { background: none repeat scroll 0% 0% rgb(255, 255, 255); border-left: 1px solid rgb(195, 195, 195); border-right: 1px solid rgb(195, 195, 195); font-size: 12px; padding: 0px 10px; }
+#icIBahyI-main_box .icIBahyI-down a { color: rgb(35, 111, 212); text-decoration: none; display: block; border-top: 1px solid rgb(195, 195, 195); padding: 5px 2px; }
+#icIBahyI-main_box .icIBahyI-down a:hover { text-decoration: underline; }
+#icIBahyI-main_cont { font-family: Arial,Helvetica,sans-serif; font-size: 14px; border-left: 1px solid rgb(195, 195, 195); border-right: 1px solid rgb(195, 195, 195); background: none repeat scroll 0% 0% rgb(251, 251, 251); color: rgb(102, 102, 102); }
+#icIBahyI-main_cont { background: none repeat scroll 0% 0% rgb(251, 251, 251); }
+#ICIBA_TOO_LONG { padding-top: 10px; padding-left: 10px; font-size: 12px; }
+
+</style>
+<div class="collins_content" style="width:400px">
+																												
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">1.</span> 
+																												<span class="st" tid="1_613">ADJ-GRADED											<div class="tips_main" id="tips_posp_1_613" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">能被表示程度的副词或介词词组修饰的形容词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">忙碌的；活跃的</span> Someone who is <b>active</b> moves around a lot or does a lot of things.&nbsp; 
+									 
+																		
+										
+								</div>
+																									<ul>
+																																													
+												<li>
+													<p>Having an <span class="text_blue">active</span> youngster about the house can be quite wearing.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/d/1/4/d14a04b9071eb2947a917b361d3f0b83.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/d/1/4/d14a04b9071eb2947a917b361d3f0b83.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>家里有个好动的小孩会是相当累人的。</p>
+												</li>
+																																																																																										
+												<li>
+													<p>...a long and <span class="text_blue">active</span> life.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/8/a/6/8a65d939821cdde006444bf70236855f.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/8/a/6/8a65d939821cdde006444bf70236855f.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>漫长而忙碌的一生</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">2.</span> 
+																												<span class="st" tid="2_614">ADJ-GRADED											<div class="tips_main" id="tips_posp_2_614" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">能被表示程度的副词或介词词组修饰的形容词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">（思想等）活跃的</span> If you have an <b>active</b> mind or imagination, you are always thinking of new things.&nbsp; 
+									 
+																		
+										
+								</div>
+																									<ul>
+																																													
+												<li>
+													<p>...the tragedy of an <span class="text_blue">active</span> mind trapped by failing physical health.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/d/0/9/d093e3736b933f01a0028d535ea14765.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/d/0/9/d093e3736b933f01a0028d535ea14765.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>因为健康状况衰退而思维受阻的悲剧</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">3.</span> 
+																												<span class="st" tid="3_615">ADJ-GRADED											<div class="tips_main" id="tips_posp_3_615" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">能被表示程度的副词或介词词组修饰的形容词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">积极（参与）的</span> If someone is <b>active</b> in an organization, cause, or campaign, they do things for it rather than just giving it their support.&nbsp; 
+									 
+																		
+																			<span class="tips_box">
+										<div class="tips_main" style="display:none;" id="word_gram_3_615">
+											<div class="bg_tips"></div>
+											<div class="tips_content">
+																																			<div>【搭配模式】：oft ADJ prep</div>																								</div>
+											</div>
+											<a href="javascript:;" class="info" onmouseover="showTips('word_gram', '3_615')" onmouseout="closeTips('word_gram', '3_615')"></a>
+										</span>
+										
+								</div>
+																									<ul>
+																																													
+												<li>
+													<p>...a chance for fathers to play a more <span class="text_blue">active</span> role in childcare...																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/5/3/8/53844b8c6d341f3d86f8230877a7e32e.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/5/3/8/53844b8c6d341f3d86f8230877a7e32e.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>让父亲们更积极地参与育婴的机会</p>
+												</li>
+																																																																																										
+												<li>
+													<p>I am an <span class="text_blue">active</span> member of the Conservative Party...																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/5/0/3/50388a6724539e9f7427b7f90e01c59b.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/5/0/3/50388a6724539e9f7427b7f90e01c59b.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>我是保守党的积极分子。</p>
+												</li>
+																																																																																										
+												<li>
+													<p>He is <span class="text_blue">active</span> on Tyler's behalf.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/7/9/c/79cec6647f529a72ccb321f2d1843a81.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/7/9/c/79cec6647f529a72ccb321f2d1843a81.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>他为泰勒积极奔忙。</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+						
+						<div class="vExplain_r"><i></i>
+						<b class="text_blue">actively</b>
+												 								 																									<ul>
+																																													
+												<li>
+													<p>They <span class="text_blue">active</span>ly campaigned for the vote.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/0/e/0/0e096e2987772d4b99fde4fb83a1d62a.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/0/e/0/0e096e2987772d4b99fde4fb83a1d62a.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>他们积极参加竞选运动。</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">4.</span> 
+																												<span class="st" tid="4_617">ADJ											<div class="tips_main" id="tips_posp_4_617" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">形容词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">积极的；主动的</span> <b>Active</b> is used to emphasize that someone is taking action in order to achieve something, rather than just hoping for it or achieving it in an indirect way.&nbsp; 
+									 
+																		
+																			<span class="tips_box">
+										<div class="tips_main" style="display:none;" id="word_gram_4_617">
+											<div class="bg_tips"></div>
+											<div class="tips_content">
+																																			<div>【搭配模式】：ADJ n</div>																								<div>【语用信息】：emphasis</div>																								</div>
+											</div>
+											<a href="javascript:;" class="info" onmouseover="showTips('word_gram', '4_617')" onmouseout="closeTips('word_gram', '4_617')"></a>
+										</span>
+										
+								</div>
+																									<ul>
+																																													
+												<li>
+													<p>Companies need to take <span class="text_blue">active</span> steps to increase exports.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/2/c/b/2cb3dcb3c13ec98670006fb967f84b72.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/2/c/b/2cb3dcb3c13ec98670006fb967f84b72.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>各公司需要采取积极措施增加出口。</p>
+												</li>
+																																																																																										
+												<li>
+													<p>...<span class="text_blue">active</span> discouragement from teachers.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/7/4/c/74cff7889eb47d632b6e4967edb60b3c.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/7/4/c/74cff7889eb47d632b6e4967edb60b3c.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>教师们的竭力阻挠</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+						
+						<div class="vExplain_r"><i></i>
+						<b class="text_blue">actively</b>
+												 								 																									<ul>
+																																													
+												<li>
+													<p>They have never been <span class="text_blue">active</span>ly encouraged to take such risks.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/e/f/7/ef7389ff3c3d9edca7c38a9bd3f66cfa.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/e/f/7/ef7389ff3c3d9edca7c38a9bd3f66cfa.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>他们从未被撺掇去冒这样的风险。</p>
+												</li>
+																																																																																										
+												<li>
+													<p>...the White House says the president is not <span class="text_blue">active</span>ly considering such a move.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/9/3/a/93a1b47146d00e3e1c6bdd141766f4cc.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/9/3/a/93a1b47146d00e3e1c6bdd141766f4cc.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>白宫说总统对这样的举措并不作积极考虑。</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">5.</span> 
+																												<span class="st" tid="5_619">ADJ											<div class="tips_main" id="tips_posp_5_619" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">形容词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">定期进行的;活动的</span> If you say that a person or animal is <b>active</b> in a particular place or at a particular time, you mean that they are performing their usual activities or performing a particular activity.&nbsp; 
+									 
+																		
+																			<span class="tips_box">
+										<div class="tips_main" style="display:none;" id="word_gram_5_619">
+											<div class="bg_tips"></div>
+											<div class="tips_content">
+																																			<div>【搭配模式】：usu v-link ADJ</div>																								</div>
+											</div>
+											<a href="javascript:;" class="info" onmouseover="showTips('word_gram', '5_619')" onmouseout="closeTips('word_gram', '5_619')"></a>
+										</span>
+										
+								</div>
+																									<ul>
+																																													
+												<li>
+													<p>Guerrilla groups are <span class="text_blue">active</span> in the province.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/5/a/c/5acacb0fe588fbd9c55e4352415b8224.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/5/a/c/5acacb0fe588fbd9c55e4352415b8224.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>游击队在该省很活跃。</p>
+												</li>
+																																																																																										
+												<li>
+													<p>...animals which are <span class="text_blue">active</span> at night.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/2/6/1/2612190886fc58d24321fdb63d269e22.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/2/6/1/2612190886fc58d24321fdb63d269e22.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>夜行动物</p>
+												</li>
+																																																																																										
+												<li>
+													<p>...men who are sexually <span class="text_blue">active</span>.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/8/3/3/833e6fbc508a1b231b6dffe43bf3326d.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/8/3/3/833e6fbc508a1b231b6dffe43bf3326d.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>性欲旺盛的男人们</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">6.</span> 
+																												<span class="st" tid="6_620">ADJ											<div class="tips_main" id="tips_posp_6_620" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">形容词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">（火山）活的</span> An <b>active</b> volcano has erupted recently or is expected to erupt quite soon.&nbsp; 
+									 
+																		
+																			<span class="tips_box">
+										<div class="tips_main" style="display:none;" id="word_gram_6_620">
+											<div class="bg_tips"></div>
+											<div class="tips_content">
+																																			<div>【搭配模式】：usu ADJ n</div>																								</div>
+											</div>
+											<a href="javascript:;" class="info" onmouseover="showTips('word_gram', '6_620')" onmouseout="closeTips('word_gram', '6_620')"></a>
+										</span>
+										
+								</div>
+																									<ul>
+																																													
+												<li>
+													<p>...molten lava from an <span class="text_blue">active</span> volcano.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/0/3/2/032dc14bdacd92a67164423b821693d2.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/0/3/2/032dc14bdacd92a67164423b821693d2.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>活火山喷出的熔岩</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">7.</span> 
+																												<span class="st" tid="7_621">ADJ											<div class="tips_main" id="tips_posp_7_621" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">形容词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">起化学(或生物)作用的;活性的;有效的</span> An <b>active</b> substance has a chemical or biological effect on things.&nbsp; 
+									 
+																		
+																			<span class="tips_box">
+										<div class="tips_main" style="display:none;" id="word_gram_7_621">
+											<div class="bg_tips"></div>
+											<div class="tips_content">
+																																			<div>【搭配模式】：usu ADJ n</div>																								</div>
+											</div>
+											<a href="javascript:;" class="info" onmouseover="showTips('word_gram', '7_621')" onmouseout="closeTips('word_gram', '7_621')"></a>
+										</span>
+										
+								</div>
+																									<ul>
+																																													
+												<li>
+													<p>The <span class="text_blue">active</span> ingredient in some of the mouthwashes was simply detergent.																										<a class="ico_sound" href="javascript:;" onmouseout="clearTimeout(timer);" onmouseover="onSecondDelay('http://res-tts.iciba.com/tts_dj/b/1/f/b1fb6161b85d1dc0b9114ab03eeb0500.mp3')" onclick="asplay('http://res-tts.iciba.com/tts_dj/b/1/f/b1fb6161b85d1dc0b9114ab03eeb0500.mp3');clickCountResult(43);" title="机器发音"></a>
+																										</p>
+													<p>某些漱口剂中的有效成分只不过是洗涤剂而已。</p>
+												</li>
+																																																																</ul>
+													</div>
+																									
+					<div class="collins_en_cn">
+																	 								 															<div class="caption">
+																		<span class="num">8.</span> 
+																												<span class="st" tid="8_622">N-SING											<div class="tips_main" id="tips_posp_8_622" style="display:none;">
+												<div class="bg_tips"></div>
+																								<div class="tips_content">单数名词</div>
+											</div>
+										</span> 
+																		
+																		<span class="text_blue">（语法中的）主动语态</span> In grammar, <b>the active</b> or <b>the active voice</b> means the forms of a verb which are used when the subject refers to a person or thing that does something. For example, in 'I saw her yesterday', the verb is in the active.&nbsp; 
+									 
+																		
+																			<span class="tips_box">
+										<div class="tips_main" style="display:none;" id="word_gram_8_622">
+											<div class="bg_tips"></div>
+											<div class="tips_content">
+																																			<div>【搭配模式】：<l>the</l> N</div>																								</div>
+											</div>
+											<a href="javascript:;" class="info" onmouseover="showTips('word_gram', '8_622')" onmouseout="closeTips('word_gram', '8_622')"></a>
+										</span>
+										
+								</div>
+																									<ul>
+																			</ul>
+													</div>
+										
+											
+				</div>
+<script>
+var $window = $(window),
+    $sidebar = $(sidebar);
+
+$window.on('resize', function(){
+    $sidebar.height($window.innerHeight());
+});
+
+$window.resize();
+</script>
