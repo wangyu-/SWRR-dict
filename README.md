@@ -1,4 +1,4 @@
 SWRR-dict
 =========
 
-small white rabbit rabbit dict
+a dict plugin for chrome
